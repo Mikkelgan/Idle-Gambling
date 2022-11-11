@@ -7,6 +7,6 @@ public class testScript : MonoBehaviour
 {
     public void Start()
     {
-        
+        Screen.SetResolution(1125, 2436, true);
     }
 }
