@@ -9,24 +9,28 @@ public class Manager : MonoBehaviour
     public int clicksForAd = 100;
     bool adPlay;
 
-    public Text TotalClicksText;
+    public Text totalClicksText;
 
-    float totalClicks;
+    public static float totalClicks;
 
 
     public GameObject Jeton;
     public GameObject AD;
 
+    private void Start()
+    {
+        totalClicksText.text = totalClicks.ToString();
+    }
 
     public void AddClicks()
     {
         totalClicks++;
-        TotalClicksText.text = totalClicks.ToString("0");
+        totalClicksText.text = totalClicks.ToString();
     }
 
     void Update()
     {
-        if (TotalClicksText.text == clicksForAd.ToString())
+        if (totalClicksText.text == clicksForAd.ToString())
         {
             Jeton.SetActive(false);
             AD.SetActive(true);
@@ -40,7 +44,7 @@ public class Manager : MonoBehaviour
             AD.SetActive(false);
             adPlay = false;
             totalClicks = totalClicks + 1;
-            TotalClicksText.text = totalClicks.ToString();
+            totalClicksText.text = totalClicks.ToString();
         }
     }
 }
