@@ -18,14 +18,14 @@ public class StoreManager : MonoBehaviour
     void Start()
     {
         Chips.text = Manager.totalClicks.ToString();
-        assistantText.text = $" Lv. {assistantLevel} assistant";
-        assistantCostText.text = $"{assistantCost}$ ";
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        assistantText.text = $" Lv. {assistantLevel} assistant";
+        assistantCostText.text = $"{assistantCost}$ ";
     }
     public void Assistant()
     {
@@ -35,8 +35,7 @@ public class StoreManager : MonoBehaviour
             assistantLevel++;
             Manager.totalClicks -= assistantCost;
             Chips.text = Manager.totalClicks.ToString();
-            assistantText.text = $"Lv. {assistantLevel} assistant";
-            assistantCostText.text = $"{assistantCost}$ ";
+            
         }
     }
 }
