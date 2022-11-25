@@ -30,21 +30,10 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
-        if (totalClicksText.text == clicksForAd.ToString())
-        {
-            Jeton.SetActive(false);
-            AD.SetActive(true);
+        float roundedChips = Mathf.Floor(totalClicks * 1f) / 1f;
+        totalClicksText.text = roundedChips.ToString();
 
-            adPlay = true;
-        }
+        totalClicks += ((StoreManager.assistantLevel * 0.1f) + (StoreManager.addictLevel * 0.5f)) * Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && adPlay == true)
-        {
-            Jeton.SetActive(true);
-            AD.SetActive(false);
-            adPlay = false;
-            totalClicks = totalClicks + 1;
-            totalClicksText.text = totalClicks.ToString();
-        }
     }
 }
