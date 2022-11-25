@@ -7,7 +7,7 @@ public class StoreManager : MonoBehaviour
 {
     public Text Chips;
     
-    public static float assistantLevel = 1;
+    public static float assistantLevel = 0;
     public static float assistantCost = 10;
     public Text assistantText;
     public Text assistantCostText;
@@ -26,11 +26,11 @@ public class StoreManager : MonoBehaviour
     {
         assistantText.text = $" Lv. {assistantLevel} assistant";
         assistantCostText.text = $"{assistantCost}$ ";
+        assistantCost = 10 + assistantLevel * assistantLevel * 0.15f;
     }
 
     public void Assistant()
     {
-        assistantCost = 10 + assistantLevel * assistantLevel * 0.15f;
         if (Manager.totalClicks >= assistantCost)
         {
             assistantLevel++;
