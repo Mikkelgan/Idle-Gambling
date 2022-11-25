@@ -7,9 +7,10 @@ public class StoreManager : MonoBehaviour
 {
     public Text Chips;
     
-    float assistantLevel = 0;
-    float assistantCost;
+    public static float assistantLevel = 1;
+    public static float assistantCost = 10;
     public Text assistantText;
+    public Text assistantCostText;
 
     
 
@@ -17,6 +18,8 @@ public class StoreManager : MonoBehaviour
     void Start()
     {
         Chips.text = Manager.totalClicks.ToString();
+        assistantText.text = $" Lv. {assistantLevel} assistant";
+        assistantCostText.text = $"{assistantCost}$ ";
     }
 
     // Update is called once per frame
@@ -26,12 +29,14 @@ public class StoreManager : MonoBehaviour
     }
     public void Assistant()
     {
-        assistantCost = 10 + assistantLevel * 1.15f;
+        assistantCost = 10 + assistantLevel * assistantLevel * 0.15f;
         if (Manager.totalClicks >= assistantCost)
         {
             assistantLevel++;
             Manager.totalClicks -= assistantCost;
             Chips.text = Manager.totalClicks.ToString();
+            assistantText.text = $"Lv. {assistantLevel} assistant";
+            assistantCostText.text = $"{assistantCost}$ ";
         }
     }
 }
