@@ -27,6 +27,7 @@ public class StoreManager : MonoBehaviour
         assistantText.text = $" Lv. {assistantLevel} assistant";
         assistantCostText.text = $"{assistantCost}$ ";
     }
+
     public void Assistant()
     {
         assistantCost = 10 + assistantLevel * assistantLevel * 0.15f;
