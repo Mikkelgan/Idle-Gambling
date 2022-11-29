@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class Manager : MonoBehaviour
 {
@@ -12,22 +12,7 @@ public class Manager : MonoBehaviour
 
     public GameObject Jeton;
 
-    float plinkoCost = 2500;
-    public TextMeshPro plinkoText;
-    bool plinko = false;
-
-    float diceCost = 10000;
-    public TextMeshPro diceText;
-    bool dice = false;
-
-    float crashCost = 50000;
-    public TextMeshPro crashText;
-    bool crash = false;
-
-    float rouletteCost = 150000;
-    public TextMeshPro rouletteText;
-    bool roulette = false;
-
+  
     private void Start()
     {
         totalClicksText.text = totalClicks.ToString();
@@ -48,59 +33,4 @@ public class Manager : MonoBehaviour
 
     }
 
-    public void Plinko()
-    {
-        if (plinko)
-        {
-            SceneManager.LoadScene("Plinko");
-        }
-        else if (totalClicks >= plinkoCost)
-        {
-            totalClicks -= plinkoCost;
-            plinko = true;
-
-        }
-    }
-
-    public void Dice()
-    {
-        if (dice)
-        {
-            SceneManager.LoadScene("Dice");
-        }
-        else if (totalClicks >= diceCost)
-        {
-            totalClicks -= diceCost;
-            dice = true;
-
-        }
-    }
-
-    public void Crash()
-    {
-        if (crash)
-        {
-            SceneManager.LoadScene("Crash");
-        }
-        else if (totalClicks >= crashCost)
-        {
-            totalClicks -= crashCost;
-            crash = true;
-
-        }
-    }
-
-    public void Roulette()
-    {
-        if (roulette)
-        {
-            SceneManager.LoadScene("Roulette");
-        }
-        else if (totalClicks >= rouletteCost)
-        {
-            totalClicks -= rouletteCost;
-            roulette = true;
-
-        }
-    }
 }
