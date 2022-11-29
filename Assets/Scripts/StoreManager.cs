@@ -18,14 +18,20 @@ public class StoreManager : MonoBehaviour
     public Text addictCostText;
 
     public static float pokerLevel = 0;
-    public static float pokerCost = 300;
+    public static float pokerCost = 750;
     public Text pokerText;
     public Text pokerCostText;
 
     public static float casinoLevel = 0;
-    public static float casinoCost = 1500;
+    public static float casinoCost = 2500;
     public Text casinoText;
     public Text casinoCostText;
+
+    public static int chipLevel = 1;
+    public static float[] chipCost = new float[] { 0, 500, 2000, 7500, 50000, 150000, 750000, 1500000, 4000000, 10000000 };
+    public static float[] chipMulti = new float[] { 0, 1, 2, 5, 10, 20, 50, 100, 200, 500 };
+    public Text chipText;
+    public Text chipCostText;
 
     
     void Start()
@@ -55,16 +61,20 @@ public class StoreManager : MonoBehaviour
         float roundedPCost = Mathf.Round(pokerCost * 1f) / 1f;
         pokerText.text = $" Lv. {pokerLevel} poker player";
         pokerCostText.text = $"{roundedPCost}$ ";
-        pokerCost = 300 + pokerLevel * pokerLevel * 11.2f;
+        pokerCost = 750 + pokerLevel * pokerLevel * 11.2f;
 
         //casino text
         float roundedCCost = Mathf.Round(casinoCost * 1f) / 1f;
         casinoText.text = $" Lv. {casinoLevel} casino";
         casinoCostText.text = $"{roundedCCost}$ ";
-        casinoCost = 1500 + casinoLevel * casinoLevel * 34.8f;
+        casinoCost = 2500 + casinoLevel * casinoLevel * 34.8f;
+
+        //chip text
+        chipText.text = $" Lv. {chipLevel} casino";
+        chipCostText.text = $"{chipCost[chipLevel]}$ ";
 
         //passive income
-        Manager.totalClicks += ((assistantLevel * 0.1f) + (addictLevel * 0.5f) + (pokerLevel * 2.5f) + (casinoLevel * 10f)) * Time.deltaTime;
+        Manager.totalClicks += ((assistantLevel * 0.5f) + (addictLevel * 2.5f) + (pokerLevel * 10f) + (casinoLevel * 50f)) * Time.deltaTime;
     }
 
     public void Assistant()
@@ -104,6 +114,15 @@ public class StoreManager : MonoBehaviour
             casinoLevel++;
             Manager.totalClicks -= casinoCost;
 
+        }
+    }
+
+    public void Chip()
+    {
+        if (Manager.totalClicks >= chipCost[chipLevel])
+        {
+            Manager.totalClicks -= chipCost[chipLevel];
+            chipLevel++;
         }
     }
 }
