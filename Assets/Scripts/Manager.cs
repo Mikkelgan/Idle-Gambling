@@ -4,19 +4,15 @@ using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Manager : MonoBehaviour
 {
-    public int clicksForAd = 100;
-    bool adPlay;
-
     public Text totalClicksText;
-
     public static float totalClicks;
 
-
     public GameObject Jeton;
-    public GameObject AD;
 
+  
     private void Start()
     {
         totalClicksText.text = totalClicks.ToString();
@@ -24,27 +20,17 @@ public class Manager : MonoBehaviour
 
     public void AddClicks()
     {
-        totalClicks++;
+        totalClicks += 1 * StoreManager.chipMulti[StoreManager.chipLevel];
         totalClicksText.text = totalClicks.ToString();
     }
 
     void Update()
     {
-        if (totalClicksText.text == clicksForAd.ToString())
-        {
-            Jeton.SetActive(false);
-            AD.SetActive(true);
+        float roundedChips = Mathf.Floor(totalClicks * 1f) / 1f;
+        totalClicksText.text = roundedChips.ToString();
 
-            adPlay = true;
-        }
+        totalClicks += ((StoreManager.assistantLevel * 0.5f) + (StoreManager.addictLevel * 2.5f) + (StoreManager.pokerLevel * 10f) + (StoreManager.casinoLevel * 50f)) * Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && adPlay == true)
-        {
-            Jeton.SetActive(true);
-            AD.SetActive(false);
-            adPlay = false;
-            totalClicks = totalClicks + 1;
-            totalClicksText.text = totalClicks.ToString();
-        }
     }
+
 }
