@@ -721,6 +721,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1093477226}
   - component: {fileID: 1093477227}
+  - component: {fileID: 1093477228}
+  - component: {fileID: 1093477229}
   m_Layer: 5
   m_Name: SceneChange
   m_TagString: Untagged
@@ -760,6 +762,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a033c6a1cd19f894e8f3d437fcad1dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1093477228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093477225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67156567c8a0c1448bda7b93c54cdaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Chips: {fileID: 0}
+  assistantText: {fileID: 0}
+  assistantCostText: {fileID: 0}
+  addictText: {fileID: 0}
+  addictCostText: {fileID: 0}
+  pokerText: {fileID: 0}
+  pokerCostText: {fileID: 0}
+  casinoText: {fileID: 0}
+  casinoCostText: {fileID: 0}
+  chipText: {fileID: 0}
+  chipCostText: {fileID: 0}
+--- !u!114 &1093477229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093477225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fcdb2ebb5fe8d4dba5556924e969c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chips: {fileID: 0}
+  bigmult1: {fileID: 0}
+  bigmult2: {fileID: 0}
+  medmult1: {fileID: 0}
+  medmult2: {fileID: 0}
+  smallmult: {fileID: 0}
 --- !u!1 &1141973790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,6 +1570,7 @@ GameObject:
   - component: {fileID: 2054444942}
   - component: {fileID: 2054444941}
   - component: {fileID: 2054444940}
+  - component: {fileID: 2054444943}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1584,6 +1628,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054444943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054444939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fcdb2ebb5fe8d4dba5556924e969c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chips: {fileID: 995437094}
+  bigmult1: {fileID: 0}
+  bigmult2: {fileID: 0}
+  medmult1: {fileID: 0}
+  medmult2: {fileID: 0}
+  smallmult: {fileID: 0}
 --- !u!1 &2139508779
 GameObject:
   m_ObjectHideFlags: 0
