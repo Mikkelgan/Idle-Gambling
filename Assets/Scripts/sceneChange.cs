@@ -20,12 +20,22 @@ public class sceneChange : MonoBehaviour
         
     }
 
-    public void sceneStore()
+    public void sceneGeneralStore()
     {
-        SceneManager.LoadScene("Store");
+        SceneManager.LoadScene("General Store");
     }
     public void sceneHome()
     {
-        SceneManager.LoadScene("Main Screen");
+        SceneManager.LoadScene("Home");
+    }
+
+    public void sceneMinigameStore()
+    {
+        SceneManager.LoadScene("Minigame Store");
+    }
+
+    public void scenePremiumStore()
+    {
+        SceneManager.LoadScene("Premium Store");
     }
 }
