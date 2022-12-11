@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StoreManager : MonoBehaviour
 {
     public Text Chips;
+    public Text gems;
     
     public static float assistantLevel = 0;
     public static float assistantCost = 10;
@@ -37,7 +38,8 @@ public class StoreManager : MonoBehaviour
     void Start()
     {
         Chips.text = Manager.totalClicks.ToString();
-        
+        gems.text = gemManager.totalGems.ToString();
+
     }
     
     void Update()
@@ -74,7 +76,7 @@ public class StoreManager : MonoBehaviour
         chipCostText.text = $"{chipCost[chipLevel]}$ ";
 
         //passive income
-        Manager.totalClicks += ((assistantLevel * 0.5f) + (addictLevel * 2.5f) + (pokerLevel * 10f) + (casinoLevel * 50f)) * Time.deltaTime;
+        Manager.totalClicks += ((assistantLevel * 0.5f * (gemManager.assistantMLevel + 1)) + (addictLevel * 2.5f * (gemManager.addictMLevel + 1)) + (pokerLevel * 10f * (gemManager.pokerMLevel + 1)) + (casinoLevel * 50f * (gemManager.casinoMLevel + 1))) * Time.deltaTime;
     }
 
     public void Assistant()
